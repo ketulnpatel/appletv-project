@@ -1,3 +1,4 @@
+
 name: CI/CD Pipeline
 
 on:
@@ -54,4 +55,3 @@ jobs:
                   docker stop appletv-app || true
                   docker rm appletv-app || true
                   docker run -d --name appletv-app -p 5000:5000 ${{ secrets.DOCKER_USERNAME }}/appletv-app:latest
-
