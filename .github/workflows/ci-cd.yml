@@ -1,1 +1,17 @@
+name: CI/CD Pipeline
 
+on:
+    workflow_dispatch:
+jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: checkout code
+          uses: actions/checkout@v4
+          
+        - name: build docker image
+          uses: docker/build-push-action@v5
+          with:
+            context: .
+            push: false
+            tags: appletv-app:latest
